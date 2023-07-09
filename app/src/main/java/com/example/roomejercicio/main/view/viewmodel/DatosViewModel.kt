@@ -17,6 +17,9 @@ class DatosViewModel(private val repository: DatosRepository) : ViewModel() {
     fun insert(dato: Datos) = viewModelScope.launch {
         repository.insert(dato)
     }
+    fun deleteAll() = viewModelScope.launch {
+        repository.deleteAll()
+    }
 }
 
 class DatosViewModelFactory(private val repository: DatosRepository) : ViewModelProvider.Factory {

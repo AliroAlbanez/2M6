@@ -13,4 +13,8 @@ class DatosRepository(private val datosDao: DatosDao) {
     suspend fun insert(datos: Datos) {
         datosDao.insert(datos)
     }
+    @WorkerThread
+    suspend fun deleteAll() {
+        datosDao.deleteAll()
+    }
 }
