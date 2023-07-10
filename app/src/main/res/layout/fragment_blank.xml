@@ -1,8 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="600dp"
     android:background="@color/darkgrey"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    >
 
     <EditText
         android:id="@+id/nombre"
@@ -43,5 +45,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Carro" />
+
+    <TextView
+        android:id="@+id/textTotal"
+        android:text="TOTAL"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:textSize="50dp"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

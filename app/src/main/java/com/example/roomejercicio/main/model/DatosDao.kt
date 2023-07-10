@@ -16,6 +16,8 @@ interface DatosDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(datos: Datos)
+    @Query("SELECT SUM(precio) FROM TABLE_DATOS")
+    fun getPrecio(): LiveData<Double>
 
     @Query("DELETE FROM TABLE_DATOS")
     suspend fun deleteAll()
