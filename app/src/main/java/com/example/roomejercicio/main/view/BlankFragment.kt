@@ -12,16 +12,12 @@ import com.example.RoomEjercicio.R
 import com.example.RoomEjercicio.databinding.FragmentBlankBinding
 
 class BlankFragment : Fragment() {
-    private var binding: FragmentBlankBinding? = null
-
-    private var totalTextView: TextView? = null
 
     // Interfaz para manejar los eventos de los botones del fragmento
     interface CarroButtonClickListener {
         fun onCarroButtonClick()
         fun insertar()
     }
-
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,14 +42,7 @@ class BlankFragment : Fragment() {
 
             // Llama al método insertar de la interfaz si está implementado en la actividad
             listener?.insertar()
-
         }
-
-
-
-
         return view
     }
-
-
 }

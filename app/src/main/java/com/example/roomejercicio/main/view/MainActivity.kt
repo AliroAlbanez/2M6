@@ -23,16 +23,8 @@ import com.example.roomejercicio.main.view.viewmodel.DatosViewModel
 import com.example.roomejercicio.main.view.viewmodel.DatosViewModelFactory
 class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var binding2: FragmentBlankBinding
     private lateinit var datosViewModel: DatosViewModel
     internal lateinit var data: List<Datos>
-    private lateinit var total: String
-
-    private var traspaso: Int = 0
-    private lateinit var nombres: String
-    private var precios: Double = 0.0
-    private var cantidades: Int = 0
-    lateinit var totalImprimir:String
     private lateinit var totalTextView: TextView
 
 
@@ -43,8 +35,6 @@ class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener
 
         // Asignar el TextView del layout al miembro totalTextView
         totalTextView = binding.textTotal
-
-
 
         //instanciar la bd
         val database = DatosRoomDatabase.getDatabase(applicationContext)
@@ -63,11 +53,9 @@ class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener
                 total += ttotal
             }
             val totalImprimir = total.toString()
-
             // Asignar el valor del total al TextView
             totalTextView.text = totalImprimir
         })
-
         //Cargamos el fragmento para agregar apenas cargue la app
         supportFragmentManager.commit {
             setReorderingAllowed(true)
@@ -81,7 +69,6 @@ class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener
         try {
             // Verificar si la propiedad ids está inicializada
             if (!data.isEmpty()) {
-
                // val total = this.data.sumOf { it.precio }
                 // Acceder a la propiedad ids
                 val listaFragment = ListaFragment()
@@ -118,6 +105,7 @@ class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener
         datosViewModel.insert(datos)
         Toast.makeText(this, "agregado correctamente", Toast.LENGTH_SHORT).show()
     }
+
     fun eliminar()
     {
         datosViewModel.deleteAll()
@@ -128,7 +116,4 @@ class MainActivity : AppCompatActivity(), BlankFragment.CarroButtonClickListener
             .replace(R.id.fragmentContainer, listaFragment)
             .commit()
     }
-
-
-
 }

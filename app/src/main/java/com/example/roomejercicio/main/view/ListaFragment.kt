@@ -33,16 +33,13 @@ class ListaFragment : Fragment() {
     ): View? {
         // Inflar el layout del fragmento
         val view = inflater.inflate(R.layout.fragment_lista, container, false)
-
         // Obtener referencia al RecyclerView desde el layout
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-
         // Crear instancia del adaptador DatosListAdapter y asignarlo al RecyclerView
         // Pasamos la lista de datos obtenida desde la actividad principal (MainActivity)
         val adapter = DatosListAdapter((activity as MainActivity).data)
         recyclerView.adapter = adapter
-
-
+        // Llamamos al boton vaciar y le damos una accion
         view.findViewById<Button>(R.id.vaciar).setOnClickListener {
             // Verifica si la actividad contenedora implementa la interfaz CarroButtonClickListener
             if (activity is MainActivity) {
@@ -50,9 +47,6 @@ class ListaFragment : Fragment() {
             }
             // Llama al método eliminar() de la actividad si está implementado
         }
-
-
-
         return view
     }
 
@@ -60,7 +54,6 @@ class ListaFragment : Fragment() {
         // Constantes para los argumentos
         private const val ARG_PARAM1 = "param1"
         private const val ARG_PARAM2 = "param2"
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             ListaFragment().apply {
