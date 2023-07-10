@@ -1,13 +1,20 @@
 package com.example.roomejercicio.main.view
+
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.example.RoomEjercicio.R
+import com.example.RoomEjercicio.databinding.FragmentBlankBinding
 
 class BlankFragment : Fragment() {
+    private var binding: FragmentBlankBinding? = null
+
+    private var totalTextView: TextView? = null
 
     // Interfaz para manejar los eventos de los botones del fragmento
     interface CarroButtonClickListener {
@@ -15,6 +22,7 @@ class BlankFragment : Fragment() {
         fun insertar()
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,8 +46,14 @@ class BlankFragment : Fragment() {
 
             // Llama al método insertar de la interfaz si está implementado en la actividad
             listener?.insertar()
+
         }
+
+
+
 
         return view
     }
+
+
 }
